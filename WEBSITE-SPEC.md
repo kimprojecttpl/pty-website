@@ -90,8 +90,8 @@ Background: dark chrome gradient `#787878 → #404040`, orange border top/bottom
 |---------|--------|
 | Full-viewport height | Rotating background images (Ken Burns, 35s cycle) — use existing server assets: `senierteam2.jpg`, `DSC_2037.jpg`, `image_banner5new.jpg`, `image_banner12.jpg` |
 | Overlay | Semi-dark scrim `rgba(40,40,40,0.65)` for text legibility |
-| Headline | "AutoHaus by Patanayont" — Kanit 700, white, large |
-| Sub-headline | "Total Automotive Concept — อะไหล่แท้ ครบ 60 ปี" |
+| Brand mark | **Logo image** `assets/logoPTY.svg` (AutoHaus lockup — already includes the "Total Automotive Concept" tagline + "BY PATANA" wheel) shown large with a drop-shadow for legibility over the photo. Wrapped in `<h1>` with `alt="AutoHaus by Patanayont — Total Automotive Concept"` to keep heading semantics + SEO. **Replaces the prior typographic headline.** Safe on dark hero per BRAND.md logo rules. |
+| Sub-headline | Separate yellow "Total Automotive Concept" line **removed** (tagline now carried inside the logo lockup) → go straight from logo to the lead paragraph |
 | Segment router | 3 cards (ร้านอะไหล่ / อู่ & ฟลีต / เจ้าของรถ) with distinct CTAs |
 | Trust badges | ISO badge + "60 ปี" emblem inline below router |
 
@@ -324,3 +324,4 @@ Manual override stored in `localStorage.getItem('theme')` → `'light'` | `'dark
 | 2026-06-14 | 1.0 | Initial spec created from owner decisions (14 Jun 2026), BRAND.md, and DESIGN.md |
 | 2026-06-14 | 1.1 | Tech stack set to React (no-build CDN) + Tailwind + Glassmorphism (§8, §8.1). Real assets fetched to `assets/img/` & `assets/brands/`. Prototype `index.html` built implementing P0-01→08 + P1-01,02,03,04,06. |
 | 2026-06-14 | 1.2 | **Perf:** all images → WebP (~3.9MB → ~0.6MB, 17/17 load OK). **SEO/P2-06:** favicon (`assets/favicon.svg` wheel mark), JSON-LD `AutoPartsStore`, OG image, theme-color. **Trust:** ISO 9001 (Intertek) certificate added as badge in About. **OQ-01 partial:** สุขุมวิท 109 address recovered from ISO cert → added to offices + per-office Google Maps links; กลการ still pending. Verified via preview MCP: 0 console errors, dark/light/mobile/TH-EN all pass. |
+| 2026-06-14 | 1.3 | Hero brand mark switched from typographic "AutoHaus by Patanayont" text → **logo image** `assets/logoPTY.svg` (§6.2); removed the now-duplicate tagline line. Repo pushed to `kimprojecttpl/pty-website` (private). |
