@@ -1,0 +1,11 @@
+# OS junk
+.DS_Store
+Thumbs.db
+*.log
+
+# Editor
+.vscode/
+.idea/
+
+# Dependencies (none for v1 no-build, kept for future)
+node_modules/

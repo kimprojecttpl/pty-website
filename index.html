@@ -1,0 +1,1027 @@
+<!DOCTYPE html>
+<html lang="th" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AutoHaus by Patanayont — Total Automotive Concept | อะไหล่รถยนต์แท้ ครบวงจร 60 ปี</title>
+  <meta name="description" content="AutoHaus by Patanayont — ศูนย์อะไหล่รถยนต์แท้แบบ ONE-STOP สำหรับรถญี่ปุ่นชั้นนำ Toyota Mitsubishi Mazda Ford Honda Isuzu Nissan ดำเนินธุรกิจกว่า 60 ปี ตั้งแต่ พ.ศ. 2507 ด้วยความซื่อสัตย์ Genuine Parts · OES · ISO" />
+  <meta property="og:title" content="AutoHaus by Patanayont — Total Automotive Concept" />
+  <meta property="og:description" content="ศูนย์อะไหล่รถยนต์แท้ ONE-STOP สำหรับรถญี่ปุ่นชั้นนำ · 60 ปีแห่งความไว้วางใจ" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="assets/img/senierteam2.webp" />
+  <meta name="theme-color" content="#404040" />
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+  <link rel="apple-touch-icon" href="assets/favicon.svg" />
+
+  <!-- Structured data — facts from BRAND.md only -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "AutoPartsStore",
+    "name": "AutoHaus by Patanayont",
+    "alternateName": "หจก. พัฒนายนตร์ (Patanayont)",
+    "foundingDate": "1964",
+    "slogan": "Total Automotive Concept",
+    "description": "ศูนย์อะไหล่รถยนต์แท้แบบ ONE-STOP สำหรับรถญี่ปุ่นชั้นนำ จำหน่ายเฉพาะอะไหล่แท้ Genuine Parts และ OES ดำเนินธุรกิจกว่า 60 ปี",
+    "telephone": "+66-2-224-8827",
+    "faxNumber": "+66-2-225-7691",
+    "email": "cs.k@patanayont.com",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "23-25 ถ.ยุคล 1 (ถ.หลวง) แขวงวัดเทพศิรินทร์",
+      "addressLocality": "เขตป้อมปราบศัตรูพ่าย",
+      "addressRegion": "กรุงเทพมหานคร",
+      "postalCode": "10100",
+      "addressCountry": "TH"
+    },
+    "brand": ["Toyota", "Mitsubishi", "Mazda", "Ford", "Honda", "Isuzu", "Nissan"]
+  }
+  </script>
+
+  <!-- Fonts: Montserrat (display) + Kanit (Thai+Latin) + Inter (body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800;900&family=Kanit:wght@300;400;500;600;700&family=Inter:wght@400;500;600;700&display=swap&subset=latin,thai" rel="stylesheet" />
+
+  <!-- React 18 (no-build) -->
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+  <!-- Tailwind CSS (Play CDN) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            pty: {
+              orange: '#f39200',
+              'orange-light': '#f6921e',
+              yellow: '#ffcc00',
+              green: '#7eda7e',
+              dark1: '#787878',
+              dark2: '#404040',
+              charcoal: '#404040',
+              text: '#333333',
+              muted: '#5f5f5f',
+              bg: '#f8f8f8',
+            },
+          },
+          fontFamily: {
+            display: ['Montserrat', 'Kanit', 'sans-serif'],
+            sans: ['Inter', 'Kanit', 'sans-serif'],
+            thai: ['Kanit', 'sans-serif'],
+          },
+          keyframes: {
+            kenburns: {
+              '0%':   { transform: 'scale(1) translate(0,0)' },
+              '100%': { transform: 'scale(1.16) translate(-1.5%, -1.5%)' },
+            },
+            floaty: {
+              '0%,100%': { transform: 'translateY(0)' },
+              '50%':     { transform: 'translateY(-8px)' },
+            },
+          },
+        },
+      },
+    };
+  </script>
+
+  <style>
+    :root { --pty-orange:#f39200; }
+    html { font-size: 100%; }
+    body { font-family: 'Inter','Kanit',sans-serif; -webkit-font-smoothing: antialiased; }
+    .font-thai-on body, [lang="th"] { font-family: 'Kanit', sans-serif; }
+
+    /* ---------- Glassmorphism (WCAG-safe per SPEC §8.1) ---------- */
+    .glass-dark {
+      background: rgba(255,255,255,0.08);
+      backdrop-filter: blur(18px) saturate(125%);
+      -webkit-backdrop-filter: blur(18px) saturate(125%);
+      border: 1px solid rgba(255,255,255,0.16);
+    }
+    .glass-light {
+      background: rgba(255,255,255,0.72);
+      backdrop-filter: blur(14px) saturate(150%);
+      -webkit-backdrop-filter: blur(14px) saturate(150%);
+      border: 1px solid rgba(255,255,255,0.65);
+    }
+    .dark .glass-light {
+      background: rgba(42,42,42,0.62);
+      border: 1px solid rgba(255,255,255,0.10);
+    }
+    .glass-nav {
+      background: linear-gradient(to bottom, rgba(120,119,119,0.82) 0%, rgba(64,64,64,0.88) 51%, rgba(65,65,65,0.92) 100%);
+      backdrop-filter: blur(14px) saturate(130%);
+      -webkit-backdrop-filter: blur(14px) saturate(130%);
+    }
+    /* Fallback when backdrop-filter unsupported → near-solid */
+    @supports not ((backdrop-filter: blur(2px)) or (-webkit-backdrop-filter: blur(2px))) {
+      .glass-dark  { background: rgba(40,40,40,0.92); }
+      .glass-light { background: rgba(255,255,255,0.96); }
+      .dark .glass-light { background: rgba(42,42,42,0.96); }
+      .glass-nav   { background: linear-gradient(to bottom,#787878,#404040 51%,#414141); }
+    }
+    /* Respect reduced transparency */
+    @media (prefers-reduced-transparency: reduce) {
+      .glass-dark  { background: rgba(40,40,40,0.94); backdrop-filter:none; -webkit-backdrop-filter:none; }
+      .glass-light { background: rgba(255,255,255,0.97); backdrop-filter:none; -webkit-backdrop-filter:none; }
+      .dark .glass-light { background: rgba(38,38,38,0.97); }
+    }
+
+    /* Brand signature: charcoal gradient + orange rules */
+    .pty-chrome {
+      background: linear-gradient(to bottom,#787878 0%,#404040 51%,#414141 100%);
+      border-top: 1px solid var(--pty-orange);
+      border-bottom: 1px solid var(--pty-orange);
+    }
+
+    /* Ken Burns hero layers */
+    .kb { animation: kenburns 22s ease-out infinite alternate; }
+    .hero-fade { opacity: 0; animation: heroCycle 32s infinite; }
+    @keyframes heroCycle {
+      0%, 22% { opacity: 1; }
+      28%, 100% { opacity: 0; }
+    }
+
+    /* Section reveal on scroll */
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity .7s ease, transform .7s ease; }
+    .reveal.in { opacity: 1; transform: none; }
+
+    /* Focus ring (keyboard) */
+    a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-visible {
+      outline: 3px solid #f39200; outline-offset: 2px; border-radius: 4px;
+    }
+
+    ::selection { background: #f39200; color: #1a1a1a; }
+
+    @media (prefers-reduced-motion: reduce) {
+      .kb, .hero-fade { animation: none !important; }
+      .hero-fade:first-of-type { opacity: 1; }
+      .reveal { transition: none; opacity: 1; transform: none; }
+      html { scroll-behavior: auto; }
+    }
+
+    /* Custom scrollbar */
+    ::-webkit-scrollbar { width: 11px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb { background: #b9b9b9; border-radius: 6px; }
+    .dark ::-webkit-scrollbar-thumb { background: #4a4a4a; }
+    ::-webkit-scrollbar-thumb:hover { background: #f39200; }
+
+    #boot { position: fixed; inset: 0; display: grid; place-items: center; background:#404040; z-index: 99; }
+  </style>
+</head>
+<body class="bg-pty-bg dark:bg-[#161616] text-pty-text dark:text-[#ededed] transition-colors duration-300">
+  <div id="boot"><div style="color:#f39200;font-family:Montserrat,sans-serif;font-weight:800;letter-spacing:.15em;font-size:14px">AUTOHAUS…</div></div>
+  <div id="root"></div>
+
+  <script type="text/babel" data-presets="react">
+    const { useState, useEffect, useRef, useCallback } = React;
+
+    /* ============================== i18n ============================== */
+    const CONTENT = {
+      th: {
+        dir: 'ไทย',
+        nav: { about:'เกี่ยวกับเรา', products:'สินค้า', customers:'ลูกค้าของเรา', locations:'สาขา', contact:'ติดต่อเรา', cta:'ติดต่อฝ่ายขาย' },
+        hero: {
+          badge:'ดำเนินธุรกิจกว่า 60 ปี · ตั้งแต่ พ.ศ. 2507',
+          tagline:'Total Automotive Concept',
+          lead:'ศูนย์อะไหล่รถยนต์แท้แบบ ONE-STOP สำหรับรถญี่ปุ่นชั้นนำ — ครบวงจร ในมือคุณ',
+          ctaPrimary:'ติดต่อฝ่ายขาย', ctaSecondary:'ดูสินค้าของเรา', scroll:'เลื่อนดูเพิ่มเติม',
+          trust1:'อะไหล่แท้ Genuine Parts · OES', trust2:'มาตรฐาน ISO', trust3:'7 แบรนด์รถญี่ปุ่นชั้นนำ',
+        },
+        router: {
+          title:'คุณคือใคร?', sub:'เลือกกลุ่มของคุณ เพื่อดูข้อมูลและบริการที่ตรงกับความต้องการ',
+          items:[
+            { key:'a1', label:'ร้านอะไหล่ / ตัวแทนจำหน่าย', tag:'B2B', desc:'ค้าส่งอะไหล่แท้ พร้อมเครือข่ายกระจายสินค้าทั่วประเทศ' },
+            { key:'a2', label:'อู่ซ่อม / ฟลีตรถยนต์', tag:'B2B', desc:'อะไหล่แท้ตรงรุ่น สั่งไว รักษาเงื่อนไขการรับประกัน' },
+            { key:'a3', label:'เจ้าของรถ', tag:'B2C', desc:'หาอะไหล่แท้ของจริง จากแบรนด์ที่ไว้ใจได้กว่า 60 ปี' },
+          ],
+          cta:'ดูรายละเอียด',
+        },
+        about: {
+          eyebrow:'เกี่ยวกับเรา',
+          title:'ความซื่อสัตย์ · 60 ปีของความไว้วางใจ',
+          body:'หจก. พัฒนายนตร์ ก่อตั้งขึ้นเมื่อปี พ.ศ. 2507 โดยเริ่มกิจการจากการนำเข้าอะไหล่รถยนต์จากประเทศญี่ปุ่น ต่อมาได้รับความไว้วางใจจากร้านค้าอะไหล่รถยนต์ทั้งค้าส่งและปลีก ในการกระจายอะไหล่รถยนต์คุณภาพสูง และให้บริการแก่ผู้ใช้รถยนต์ทั่วประเทศ มาเป็นเวลากว่า 60 ปี',
+          missionLabel:'พันธกิจของเรา',
+          mission:'การเป็นศูนย์อะไหล่รถยนต์แบบ ONE-STOP ที่ลงทุนและสร้างความพร้อมในการให้บริการในทุกๆ ด้าน เพื่อส่งมอบ 3 พันธสัญญาแก่ลูกค้า',
+          commitmentsLabel:'3 พันธสัญญาของเรา',
+          commitments:[
+            { t:'สินค้าคุณภาพสูง', d:'จัดจำหน่ายเฉพาะอะไหล่รถยนต์แท้ (Genuine Parts) และอะไหล่คุณภาพ OES สำหรับรถญี่ปุ่นชั้นนำ' },
+            { t:'บริการที่ยอดเยี่ยม', d:'ผ่านบุคลากรมืออาชีพ คลังสินค้าและศูนย์กระจายสินค้า พร้อมจัดหาและกระจายอะไหล่ทั่วประเทศ ทั้งค้าส่งและปลีก' },
+            { t:'นวัตกรรมที่ทันสมัย', d:'นำนวัตกรรมและเทคโนโลยีที่ทันสมัยมาใช้ ภายใต้ระบบมาตรฐาน ISO และปรัชญาธุรกิจที่ซื่อสัตย์ต่อลูกค้า' },
+          ],
+          visionLabel:'วิสัยทัศน์',
+          vision:'เรามุ่งมั่นที่ทำให้กลุ่มบริษัทพัฒนายนตร์ เป็นคู่ค้าและพันธมิตรทางธุรกิจหลักของลูกค้า ที่ต้องการบริการที่ยอดเยี่ยมและซื่อสัตย์, อะไหล่รถยนต์คุณภาพสูง และสร้างความยั่งยืนทางธุรกิจร่วมกัน',
+          stats:[ {n:'60+', l:'ปีของประสบการณ์'}, {n:'2507', l:'ปีที่ก่อตั้ง (พ.ศ.)'}, {n:'3', l:'สำนักงาน'}, {n:'7', l:'แบรนด์รถญี่ปุ่น'} ],
+        },
+        brands: {
+          eyebrow:'สินค้า', title:'อะไหล่แท้สำหรับรถญี่ปุ่นชั้นนำ',
+          sub:'เราจำหน่ายเฉพาะอะไหล่แท้ Genuine Parts และอะไหล่คุณภาพ OES เท่านั้น — จุดยืนที่เราไม่เคยประนีประนอม',
+          note:'Genuine Parts · OES Quality — อะไหล่แท้เท่านั้น',
+        },
+        segments: {
+          eyebrow:'ลูกค้าของเรา', title:'บริการที่ออกแบบมาเพื่อคุณ',
+          sub:'ไม่ว่าคุณจะเป็นใคร เรามีโซลูชันอะไหล่แท้ที่ตอบโจทย์',
+          tabs:[
+            { key:'a1', label:'ร้านอะไหล่', head:'สำหรับร้านอะไหล่ & ตัวแทนจำหน่าย',
+              lead:'พันธมิตรค้าส่งที่ไว้วางใจได้ พร้อมสต็อกอะไหล่แท้และเครือข่ายกระจายสินค้าทั่วประเทศ',
+              points:['อะไหล่แท้ Genuine Parts / OES คุณภาพรับประกัน','เครือข่ายกระจายสินค้าทั่วประเทศ ทั้งค้าส่งและปลีก','ระบบคลังสินค้าและศูนย์กระจายสินค้าที่พร้อม','ประวัติความน่าเชื่อถือกว่า 60 ปี'],
+              cta:'ติดต่อฝ่ายขาย B2B' },
+            { key:'a2', label:'อู่ & ฟลีต', head:'สำหรับอู่ซ่อม & ฟลีตรถยนต์',
+              lead:'อะไหล่แท้ตรงรุ่น จัดส่งรวดเร็ว ช่วยรักษาเงื่อนไขการรับประกันของลูกค้าคุณ',
+              points:['อะไหล่แท้ตรงรุ่น รักษาการรับประกันรถ','จัดหารวดเร็วจาก 3 สำนักงานในกรุงเทพฯ','ครอบคลุมรถญี่ปุ่น 7 แบรนด์หลัก','มาตรฐาน ISO ทุกขั้นตอน'],
+              cta:'สอบถามราคาอะไหล่' },
+            { key:'a3', label:'เจ้าของรถ', head:'สำหรับเจ้าของรถ',
+              lead:'มั่นใจได้ว่าได้อะไหล่แท้ของจริง จากผู้จัดจำหน่ายที่อยู่คู่คนไทยมากว่า 60 ปี',
+              points:['อะไหล่แท้ 100% ไม่ใช่อะไหล่เทียม','แบรนด์ที่ไว้วางใจตั้งแต่ พ.ศ. 2507','สอบถามและหาสาขาใกล้คุณได้ง่าย','ปรัชญาธุรกิจที่ซื่อสัตย์ต่อลูกค้า'],
+              cta:'หาสาขาใกล้คุณ' },
+          ],
+        },
+        offices: {
+          eyebrow:'สาขา', title:'3 สำนักงานพร้อมให้บริการ',
+          sub:'กลุ่มบริษัทพัฒนายนตร์ ดำเนินงานภายใต้ 3 สำนักงาน',
+          items:[
+            { name:'สำนักงานสวนมะลิ', badge:'สำนักงานใหญ่', addr:'23-25 ถ.ยุคล 1 (ถ.หลวง) แขวงวัดเทพศิรินทร์ เขตป้อมปราบศัตรูพ่าย กรุงเทพฯ 10100', map:true, q:'23-25 ถนนยุคล 1 แขวงวัดเทพศิรินทร์ เขตป้อมปราบศัตรูพ่าย กรุงเทพมหานคร 10100' },
+            { name:'สำนักงานสุขุมวิท 109', badge:'สาขา', addr:'197/41 หมู่ 1 ซ.สันติบุญ ถ.สุขุมวิท 109 ต.สำโรงเหนือ อ.เมือง จ.สมุทรปราการ 10270', map:false, q:'197/41 หมู่ 1 ซอยสันติบุญ ถนนสุขุมวิท 109 ตำบลสำโรงเหนือ อำเภอเมือง สมุทรปราการ 10270' },
+            { name:'สำนักงานกลการ', badge:'สาขา', addr:'โปรดติดต่อเพื่อรับที่อยู่และนัดหมาย', map:false, q:null },
+          ],
+          viewMap:'เปิดใน Google Maps',
+        },
+        contact: {
+          eyebrow:'ติดต่อเรา', title:'พร้อมให้คำปรึกษาเรื่องอะไหล่แท้',
+          sub:'กรอกแบบฟอร์มหรือติดต่อเราโดยตรง ทีมงานยินดีให้บริการ',
+          f:{ name:'ชื่อ-นามสกุล', email:'อีเมล', phone:'เบอร์โทรศัพท์', branch:'เลือกกลุ่มของคุณ', message:'ข้อความ', submit:'ส่งข้อความ', sent:'ขอบคุณครับ! เราได้รับข้อความของคุณแล้ว ทีมงานจะติดต่อกลับโดยเร็ว' },
+          branchOpts:['ร้านอะไหล่ / ตัวแทนจำหน่าย','อู่ซ่อม / ฟลีต','เจ้าของรถ','อื่นๆ'],
+          phoneLabel:'โทรศัพท์', faxLabel:'โทรสาร', emailLabel:'อีเมล', hqLabel:'สำนักงานใหญ่',
+        },
+        footer: {
+          tagline:'Total Automotive Concept', legal:'หจก. พัฒนายนตร์ (Patanayont)',
+          rights:'สงวนลิขสิทธิ์', badges:'Genuine Parts · OES Quality · ISO Certified · 60 ปี',
+          quick:'ลิงก์ด่วน', langNote:'ภาษา', made:'ออกแบบตามแนวทางแบรนด์ AutoHaus by Patanayont',
+        },
+        a11y: { theme:'สลับธีม มืด/สว่าง', lang:'สลับภาษา', fontDec:'ลดขนาดตัวอักษร', fontReset:'ขนาดตัวอักษรปกติ', fontInc:'เพิ่มขนาดตัวอักษร', menu:'เปิดเมนู', close:'ปิดเมนู', top:'กลับขึ้นบนสุด' },
+      },
+
+      en: {
+        dir:'EN',
+        nav: { about:'About', products:'Products', customers:'Customers', locations:'Locations', contact:'Contact', cta:'Contact Sales' },
+        hero: {
+          badge:'60+ years in business · since 1964',
+          tagline:'Total Automotive Concept',
+          lead:'A ONE-STOP genuine automotive parts center for leading Japanese marques — everything, in your hand.',
+          ctaPrimary:'Contact Sales', ctaSecondary:'See our products', scroll:'Scroll to explore',
+          trust1:'Genuine Parts · OES', trust2:'ISO Standard', trust3:'7 leading Japanese marques',
+        },
+        router: {
+          title:'Who are you?', sub:'Choose your segment to see the products and service that fit you best',
+          items:[
+            { key:'a1', label:'Parts Shop / Distributor', tag:'B2B', desc:'Wholesale genuine parts with a nationwide distribution network' },
+            { key:'a2', label:'Workshop / Fleet', tag:'B2B', desc:'Exact-fit genuine parts, fast supply, warranty kept intact' },
+            { key:'a3', label:'Car Owner', tag:'B2C', desc:'Find real genuine parts from a name trusted for 60+ years' },
+          ],
+          cta:'View details',
+        },
+        about: {
+          eyebrow:'About us',
+          title:'Integrity · 60 years of trust',
+          body:'Patanayont was founded in 1964, starting out by importing automotive parts from Japan. Over time it earned the trust of parts retailers and wholesalers alike, distributing high-quality automotive parts and serving motorists nationwide for more than 60 years.',
+          missionLabel:'Our mission',
+          mission:'To be a ONE-STOP automotive parts center that invests in readiness across every dimension, delivering on three promises to our customers.',
+          commitmentsLabel:'Our 3 commitments',
+          commitments:[
+            { t:'High-Quality Products', d:'We distribute only genuine automotive parts (Genuine Parts) and OES-quality parts for leading Japanese vehicles.' },
+            { t:'Excellent Service', d:'Delivered through professional staff, warehouses and distribution centers ready to source and ship parts nationwide — wholesale and retail.' },
+            { t:'Modern Innovation', d:'We adopt modern innovation and technology under ISO standards and a business philosophy built on honesty.' },
+          ],
+          visionLabel:'Vision',
+          vision:'We are committed to making the Patanayont group the principal trading partner and business ally of customers who demand excellent, honest service and high-quality automotive parts — building sustainable business together.',
+          stats:[ {n:'60+', l:'Years of experience'}, {n:'1964', l:'Year founded'}, {n:'3', l:'Offices'}, {n:'7', l:'Japanese marques'} ],
+        },
+        brands: {
+          eyebrow:'Products', title:'Genuine parts for leading Japanese vehicles',
+          sub:'We distribute only Genuine Parts and OES-quality parts — a standard we never compromise on.',
+          note:'Genuine Parts · OES Quality — genuine only',
+        },
+        segments: {
+          eyebrow:'Our customers', title:'Service designed around you',
+          sub:'Whoever you are, we have a genuine-parts solution that fits.',
+          tabs:[
+            { key:'a1', label:'Parts Shop', head:'For parts shops & distributors',
+              lead:'A wholesale partner you can rely on — genuine-parts stock and a nationwide distribution network.',
+              points:['Genuine Parts / OES with guaranteed quality','Nationwide distribution — wholesale & retail','Ready warehouse and distribution-center system','A track record of trust spanning 60+ years'],
+              cta:'Contact B2B Sales' },
+            { key:'a2', label:'Workshop & Fleet', head:'For workshops & fleets',
+              lead:'Exact-fit genuine parts, delivered fast — helping you keep your customers’ warranties valid.',
+              points:['Exact-fit genuine parts keep vehicle warranties intact','Fast sourcing from 3 Bangkok offices','Coverage across 7 major Japanese marques','ISO standards at every step'],
+              cta:'Request parts pricing' },
+            { key:'a3', label:'Car Owner', head:'For car owners',
+              lead:'Be sure you’re getting the real thing — from a distributor that has served Thai motorists for 60+ years.',
+              points:['100% genuine parts — never counterfeit','A brand trusted since 1964','Easily enquire and find a branch near you','A business philosophy of honesty to customers'],
+              cta:'Find a branch near you' },
+          ],
+        },
+        offices: {
+          eyebrow:'Locations', title:'3 offices ready to serve',
+          sub:'The Patanayont group operates across three offices.',
+          items:[
+            { name:'Suan Mali Office', badge:'Headquarters', addr:'23-25 Yukol 1 Rd. (Luang Rd.), Wat Thep Sirin, Pom Prap Sattru Phai, Bangkok 10100', map:true, q:'23-25 Yukol 1 Road, Wat Thep Sirin, Pom Prap Sattru Phai, Bangkok 10100' },
+            { name:'Sukhumvit 109 Office', badge:'Branch', addr:'197/41 Moo 1, Soi Santiboon, Sukhumvit 109 Rd., Samrong Nua, Mueang, Samut Prakan 10270', map:false, q:'197/41 Moo 1, Soi Santiboon, Sukhumvit 109 Rd, Samrong Nua, Mueang, Samut Prakan 10270' },
+            { name:'Konlakan Office', badge:'Branch', addr:'Please contact us for the address and an appointment', map:false, q:null },
+          ],
+          viewMap:'Open in Google Maps',
+        },
+        contact: {
+          eyebrow:'Contact', title:'Here to advise on genuine parts',
+          sub:'Fill in the form or reach us directly — our team is glad to help.',
+          f:{ name:'Full name', email:'Email', phone:'Phone', branch:'Select your segment', message:'Message', submit:'Send message', sent:'Thank you! We’ve received your message and will get back to you soon.' },
+          branchOpts:['Parts Shop / Distributor','Workshop / Fleet','Car Owner','Other'],
+          phoneLabel:'Phone', faxLabel:'Fax', emailLabel:'Email', hqLabel:'Headquarters',
+        },
+        footer: {
+          tagline:'Total Automotive Concept', legal:'Patanayont Ltd. Part.',
+          rights:'All rights reserved', badges:'Genuine Parts · OES Quality · ISO Certified · 60 Years',
+          quick:'Quick links', langNote:'Language', made:'Designed to the AutoHaus by Patanayont brand guidelines',
+        },
+        a11y: { theme:'Toggle dark/light theme', lang:'Switch language', fontDec:'Decrease text size', fontReset:'Reset text size', fontInc:'Increase text size', menu:'Open menu', close:'Close menu', top:'Back to top' },
+      },
+    };
+
+    const HERO_IMAGES = ['assets/img/senierteam2.webp','assets/img/DSC_2037.webp','assets/img/image_banner5new.webp','assets/img/image_banner12.webp'];
+    const BRANDS = [
+      { name:'Toyota', img:'assets/brands/toyota_genuine.webp' },
+      { name:'Mitsubishi', img:'assets/brands/mitsubishi_genuine.webp' },
+      { name:'Mazda', img:'assets/brands/mazda_genuine.webp' },
+      { name:'Ford', img:'assets/brands/ford_genuine.webp' },
+      { name:'Honda', img:'assets/brands/honda_genuine.webp' },
+      { name:'Isuzu', img:'assets/brands/isuzu_genuine.webp' },
+      { name:'Nissan', img:'assets/brands/nissan_genuine.webp' },
+    ];
+    const HQ_MAPS = 'https://maps.google.com/maps?q=' + encodeURIComponent('23-25 ถนนยุคล 1 แขวงวัดเทพศิรินทร์ เขตป้อมปราบศัตรูพ่าย กรุงเทพมหานคร 10100');
+
+    /* ============================== Icons (SVG, no emoji) ============================== */
+    const Icon = ({ name, className='w-6 h-6' }) => {
+      const p = { fill:'none', stroke:'currentColor', strokeWidth:1.8, strokeLinecap:'round', strokeLinejoin:'round' };
+      const paths = {
+        shield:  <path {...p} d="M12 3l7 3v5c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3z M9 12l2 2 4-4" />,
+        wrench:  <path {...p} d="M14.7 6.3a4 4 0 00-5.4 5.2L4 17l3 3 5.5-5.3a4 4 0 005.2-5.4l-2.6 2.6-2.3-2.3 2.6-2.6z" />,
+        truck:   <path {...p} d="M3 7h11v8H3z M14 10h4l3 3v2h-7z M7 18a2 2 0 100-4 2 2 0 000 4z M18 18a2 2 0 100-4 2 2 0 000 4z" />,
+        spark:   <path {...p} d="M12 3l1.8 4.7L18 9l-4.2 1.3L12 15l-1.8-4.7L6 9l4.2-1.3L12 3z M19 14l.8 2.2L22 17l-2.2.8L19 20l-.8-2.2L16 17l2.2-.8L19 14z" />,
+        phone:   <path {...p} d="M5 4h3l1.5 4-2 1.5a11 11 0 005 5l1.5-2 4 1.5V18a2 2 0 01-2 2A15 15 0 014 6a2 2 0 011-2z" />,
+        fax:     <path {...p} d="M7 9V4h10v5 M7 14h10v6H7z M5 9h14a2 2 0 012 2v4h-4 M7 14H3v-3a2 2 0 012-2 M9 17h6" />,
+        mail:    <path {...p} d="M4 6h16v12H4z M4 7l8 6 8-6" />,
+        pin:     <path {...p} d="M12 21s-6-5.2-6-10a6 6 0 1112 0c0 4.8-6 10-6 10z M12 11a2 2 0 100-4 2 2 0 000 4z" />,
+        sun:     <path {...p} d="M12 7a5 5 0 100 10 5 5 0 000-10z M12 2v2 M12 20v2 M4 12H2 M22 12h-2 M5 5l1.5 1.5 M17.5 17.5L19 19 M19 5l-1.5 1.5 M6.5 17.5L5 19" />,
+        moon:    <path {...p} d="M20 14a8 8 0 01-10-10 8 8 0 1010 10z" />,
+        globe:   <path {...p} d="M12 3a9 9 0 100 18 9 9 0 000-18z M3 12h18 M12 3c2.5 2.5 2.5 15 0 18 M12 3c-2.5 2.5-2.5 15 0 18" />,
+        menu:    <path {...p} d="M4 7h16 M4 12h16 M4 17h16" />,
+        x:       <path {...p} d="M6 6l12 12 M18 6L6 18" />,
+        chevron: <path {...p} d="M6 9l6 6 6-6" />,
+        arrowUp: <path {...p} d="M12 19V5 M6 11l6-6 6 6" />,
+        arrowRt: <path {...p} d="M5 12h14 M13 6l6 6-6 6" />,
+        check:   <path {...p} d="M5 12l4 4 10-10" />,
+        cog:     <path {...p} d="M12 9a3 3 0 100 6 3 3 0 000-6z M19 12a7 7 0 00-.1-1l2-1.6-2-3.4-2.4 1a7 7 0 00-1.7-1L14.5 2h-5l-.3 2.4a7 7 0 00-1.7 1l-2.4-1-2 3.4L2.1 11a7 7 0 000 2l-2 1.6 2 3.4 2.4-1a7 7 0 001.7 1L9.5 22h5l.3-2.4a7 7 0 001.7-1l2.4 1 2-3.4-2-1.6c.1-.3.1-.7.1-1z" />,
+        star:    <path {...p} d="M12 3l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.9 6.8 19.2l1-5.8L3.5 9.2l5.9-.9L12 3z" />,
+      };
+      return <svg viewBox="0 0 24 24" className={className} role="img" aria-hidden="true">{paths[name]}</svg>;
+    };
+
+    /* ============================== Hooks ============================== */
+    function useReveal() {
+      useEffect(() => {
+        const els = document.querySelectorAll('.reveal');
+        if (!('IntersectionObserver' in window)) { els.forEach(e=>e.classList.add('in')); return; }
+        const io = new IntersectionObserver((entries)=>{
+          entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+        }, { threshold: 0.12 });
+        els.forEach(e=>io.observe(e));
+        return ()=>io.disconnect();
+      });
+    }
+
+    function useScrollSpy(ids) {
+      const [active, setActive] = useState(ids[0]);
+      useEffect(()=>{
+        const io = new IntersectionObserver((entries)=>{
+          entries.forEach(e=>{ if(e.isIntersecting) setActive(e.target.id); });
+        }, { rootMargin:'-45% 0px -50% 0px' });
+        ids.forEach(id=>{ const el=document.getElementById(id); if(el) io.observe(el); });
+        return ()=>io.disconnect();
+      }, []);
+      return active;
+    }
+
+    /* ============================== UI atoms ============================== */
+    const Eyebrow = ({ children }) => (
+      <span className="inline-flex items-center gap-2 text-pty-orange font-display font-bold tracking-[0.18em] text-xs uppercase">
+        <span className="h-px w-7 bg-pty-orange/70" />{children}
+      </span>
+    );
+
+    const PrimaryBtn = ({ children, href, onClick, className='' }) => (
+      <a href={href} onClick={onClick}
+        className={"group inline-flex items-center justify-center gap-2 rounded-xl bg-pty-orange px-6 py-3.5 font-display font-bold text-[#1a1a1a] shadow-lg shadow-pty-orange/25 ring-1 ring-pty-yellow/70 transition-all duration-200 hover:bg-pty-orange-light hover:-translate-y-0.5 hover:shadow-xl hover:shadow-pty-orange/30 cursor-pointer "+className}>
+        {children}<Icon name="arrowRt" className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+      </a>
+    );
+
+    const GhostBtn = ({ children, href, onClick, dark=false, className='' }) => (
+      <a href={href} onClick={onClick}
+        className={"inline-flex items-center justify-center gap-2 rounded-xl px-6 py-3.5 font-display font-semibold transition-all duration-200 cursor-pointer ring-1 hover:-translate-y-0.5 "
+          + (dark ? "text-white ring-white/30 hover:bg-white/10 " : "text-pty-text dark:text-white ring-pty-text/25 dark:ring-white/25 hover:bg-pty-text/5 dark:hover:bg-white/10 ") + className}>
+        {children}
+      </a>
+    );
+
+    /* ============================== Navbar ============================== */
+    function Navbar({ lang, setLang, theme, cycleTheme, fontIdx, setFontIdx, C, active }) {
+      const [scrolled, setScrolled] = useState(false);
+      const [open, setOpen] = useState(false);
+      useEffect(()=>{ const f=()=>setScrolled(window.scrollY>20); f(); window.addEventListener('scroll',f,{passive:true}); return ()=>window.removeEventListener('scroll',f); },[]);
+      const links = [['about',C.nav.about],['products',C.nav.products],['customers',C.nav.customers],['locations',C.nav.locations],['contact',C.nav.contact]];
+      const go = (e,id)=>{ e.preventDefault(); setOpen(false); document.getElementById(id)?.scrollIntoView({behavior:'smooth'}); };
+      const isDark = theme==='dark' || (theme==='system' && window.matchMedia('(prefers-color-scheme: dark)').matches);
+
+      return (
+        <header className={"fixed top-0 inset-x-0 z-50 transition-all duration-300 " + (scrolled ? "glass-nav border-b border-pty-orange shadow-lg" : "bg-gradient-to-b from-black/40 to-transparent")}>
+          <nav className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div className="flex items-center justify-between h-16 lg:h-20">
+              {/* Logo */}
+              <a href="#top" onClick={(e)=>go(e,'top')} className="flex items-center gap-3 cursor-pointer shrink-0" aria-label="AutoHaus by Patanayont — home">
+                <img src="assets/logoPTY.svg" alt="AutoHaus by Patanayont" className="h-9 lg:h-11 w-auto drop-shadow" />
+              </a>
+
+              {/* Desktop links */}
+              <ul className="hidden lg:flex items-center gap-1">
+                {links.map(([id,label])=>(
+                  <li key={id}>
+                    <a href={"#"+id} onClick={(e)=>go(e,id)}
+                      className={"px-4 py-2 rounded-lg font-medium text-sm transition-colors cursor-pointer "
+                        + (active===id ? "text-pty-orange" : "text-white/90 hover:text-white hover:bg-white/10")}>
+                      {label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+
+              {/* Controls */}
+              <div className="flex items-center gap-1.5">
+                {/* Font size */}
+                <div className="hidden sm:flex items-center rounded-lg ring-1 ring-white/25 overflow-hidden" role="group" aria-label="Text size">
+                  <button onClick={()=>setFontIdx(Math.max(0,fontIdx-1))} aria-label={C.a11y.fontDec} className="px-2 py-1.5 text-white/90 hover:bg-white/15 cursor-pointer text-xs font-bold">A−</button>
+                  <button onClick={()=>setFontIdx(1)} aria-label={C.a11y.fontReset} className="px-2 py-1.5 text-white/90 hover:bg-white/15 cursor-pointer text-sm font-bold border-x border-white/20">A</button>
+                  <button onClick={()=>setFontIdx(Math.min(3,fontIdx+1))} aria-label={C.a11y.fontInc} className="px-2 py-1.5 text-white/90 hover:bg-white/15 cursor-pointer text-base font-bold">A+</button>
+                </div>
+                {/* Theme */}
+                <button onClick={cycleTheme} aria-label={C.a11y.theme} title={C.a11y.theme}
+                  className="p-2.5 rounded-lg text-white/90 ring-1 ring-white/25 hover:bg-white/15 transition-colors cursor-pointer">
+                  <Icon name={isDark?'sun':'moon'} className="w-5 h-5" />
+                </button>
+                {/* Lang */}
+                <button onClick={()=>setLang(lang==='th'?'en':'th')} aria-label={C.a11y.lang}
+                  className="flex items-center gap-1.5 px-3 py-2 rounded-lg text-white font-display font-bold text-sm ring-1 ring-white/25 hover:bg-white/15 transition-colors cursor-pointer">
+                  <Icon name="globe" className="w-4 h-4" />{lang==='th'?'EN':'ไทย'}
+                </button>
+                {/* CTA desktop */}
+                <a href="#contact" onClick={(e)=>go(e,'contact')}
+                  className="hidden xl:inline-flex items-center gap-2 ml-1 px-5 py-2.5 rounded-xl bg-pty-orange text-[#1a1a1a] font-display font-bold text-sm ring-1 ring-pty-yellow/70 hover:bg-pty-orange-light transition-colors cursor-pointer">
+                  {C.nav.cta}
+                </a>
+                {/* Hamburger */}
+                <button onClick={()=>setOpen(!open)} aria-label={open?C.a11y.close:C.a11y.menu} aria-expanded={open}
+                  className="lg:hidden p-2.5 rounded-lg text-white ring-1 ring-white/25 hover:bg-white/15 cursor-pointer">
+                  <Icon name={open?'x':'menu'} className="w-6 h-6" />
+                </button>
+              </div>
+            </div>
+          </nav>
+
+          {/* Mobile drawer */}
+          <div className={"lg:hidden overflow-hidden transition-all duration-300 glass-nav border-t border-white/10 " + (open?"max-h-[480px]":"max-h-0")}>
+            <ul className="px-4 py-3 space-y-1">
+              {links.map(([id,label])=>(
+                <li key={id}>
+                  <a href={"#"+id} onClick={(e)=>go(e,id)}
+                    className={"block px-4 py-3 rounded-lg font-medium transition-colors cursor-pointer "+(active===id?"text-pty-orange bg-white/10":"text-white/90 hover:bg-white/10")}>
+                    {label}
+                  </a>
+                </li>
+              ))}
+              <li className="pt-2">
+                <a href="#contact" onClick={(e)=>go(e,'contact')} className="block text-center px-4 py-3 rounded-xl bg-pty-orange text-[#1a1a1a] font-display font-bold cursor-pointer">{C.nav.cta}</a>
+              </li>
+            </ul>
+          </div>
+        </header>
+      );
+    }
+
+    /* ============================== Hero ============================== */
+    function Hero({ C }) {
+      const go=(e,id)=>{ e.preventDefault(); document.getElementById(id)?.scrollIntoView({behavior:'smooth'}); };
+      return (
+        <section id="top" className="relative min-h-[100svh] flex items-center overflow-hidden pty-chrome">
+          {/* Ken Burns layers */}
+          <div className="absolute inset-0">
+            {HERO_IMAGES.map((src,i)=>(
+              <div key={i} className="hero-fade absolute inset-0" style={{ animationDelay:(i*8)+'s' }}>
+                <img src={src} alt="" aria-hidden="true" className="kb w-full h-full object-cover" style={{ animationDelay:(i*8)+'s' }} loading={i===0?'eager':'lazy'} />
+              </div>
+            ))}
+            {/* Charcoal scrim for legibility */}
+            <div className="absolute inset-0 bg-gradient-to-b from-[#262626]/85 via-[#2b2b2b]/60 to-[#1f1f1f]/92" />
+            <div className="absolute inset-0 bg-[#1a1a1a]/35" />
+          </div>
+
+          <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 w-full pt-28 pb-16">
+            <div className="max-w-3xl">
+              <div className="glass-dark inline-flex items-center gap-2 rounded-full px-4 py-2 text-white/95 text-sm font-medium mb-6">
+                <span className="w-2 h-2 rounded-full bg-pty-green animate-pulse" />{C.hero.badge}
+              </div>
+
+              <h1 className="font-display font-extrabold text-white leading-[0.95] tracking-tight text-5xl sm:text-6xl lg:text-7xl">
+                Auto<span className="text-pty-orange">Haus</span>
+                <span className="block mt-2 text-2xl sm:text-3xl lg:text-4xl font-bold text-white/90">by Patanayont</span>
+              </h1>
+
+              <p className="mt-5 font-display tracking-[0.22em] text-pty-yellow font-semibold text-sm sm:text-base uppercase">{C.hero.tagline}</p>
+              <p className="mt-4 text-lg sm:text-xl text-white/85 max-w-2xl leading-relaxed">{C.hero.lead}</p>
+
+              <div className="mt-8 flex flex-wrap gap-3">
+                <PrimaryBtn href="#contact" onClick={(e)=>go(e,'contact')}>{C.hero.ctaPrimary}</PrimaryBtn>
+                <GhostBtn href="#products" onClick={(e)=>go(e,'products')} dark>{C.hero.ctaSecondary}</GhostBtn>
+              </div>
+
+              {/* Trust strip */}
+              <div className="mt-9 flex flex-wrap items-center gap-x-6 gap-y-3 text-white/80 text-sm">
+                <span className="inline-flex items-center gap-2"><Icon name="shield" className="w-5 h-5 text-pty-orange" />{C.hero.trust1}</span>
+                <span className="inline-flex items-center gap-2"><Icon name="check" className="w-5 h-5 text-pty-green" />{C.hero.trust2}</span>
+                <span className="inline-flex items-center gap-2"><Icon name="star" className="w-5 h-5 text-pty-yellow" />{C.hero.trust3}</span>
+              </div>
+            </div>
+
+            {/* Segment router */}
+            <SegmentRouter C={C} />
+          </div>
+
+          <a href="#about" onClick={(e)=>go(e,'about')} className="absolute bottom-5 left-1/2 -translate-x-1/2 z-10 text-white/70 hover:text-pty-orange transition-colors cursor-pointer flex flex-col items-center gap-1" aria-label={C.hero.scroll}>
+            <span className="text-[11px] tracking-widest uppercase">{C.hero.scroll}</span>
+            <Icon name="chevron" className="w-6 h-6 animate-bounce" />
+          </a>
+        </section>
+      );
+    }
+
+    function SegmentRouter({ C }) {
+      const go=(e,id)=>{ e.preventDefault(); document.getElementById(id)?.scrollIntoView({behavior:'smooth'}); };
+      const icons = { a1:'truck', a2:'wrench', a3:'shield' };
+      return (
+        <div className="mt-12 lg:mt-16">
+          <p className="text-white/70 text-sm mb-4 font-medium">{C.router.title} <span className="text-white/50">— {C.router.sub}</span></p>
+          <div className="grid sm:grid-cols-3 gap-4">
+            {C.router.items.map((it)=>(
+              <a key={it.key} href="#segments" onClick={(e)=>go(e,'segments')}
+                className="glass-dark group rounded-2xl p-5 cursor-pointer transition-all duration-200 hover:-translate-y-1 hover:bg-white/[0.14] hover:ring-1 hover:ring-pty-orange/50">
+                <div className="flex items-center justify-between">
+                  <span className="inline-flex items-center justify-center w-11 h-11 rounded-xl bg-pty-orange/20 text-pty-orange ring-1 ring-pty-orange/40">
+                    <Icon name={icons[it.key]} className="w-6 h-6" />
+                  </span>
+                  <span className="text-[10px] font-display font-bold tracking-wider px-2 py-1 rounded-md bg-white/10 text-white/70">{it.tag}</span>
+                </div>
+                <h3 className="mt-4 font-display font-bold text-white text-lg leading-snug">{it.label}</h3>
+                <p className="mt-1.5 text-white/70 text-sm leading-relaxed">{it.desc}</p>
+                <span className="mt-3 inline-flex items-center gap-1.5 text-pty-orange text-sm font-semibold group-hover:gap-2.5 transition-all">
+                  {C.router.cta}<Icon name="arrowRt" className="w-4 h-4" />
+                </span>
+              </a>
+            ))}
+          </div>
+        </div>
+      );
+    }
+
+    /* ============================== About ============================== */
+    function About({ C }) {
+      const icons=['shield','spark','cog'];
+      return (
+        <section id="about" className="relative py-20 lg:py-28 scroll-mt-20">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+              {/* Left: copy */}
+              <div className="reveal">
+                <Eyebrow>{C.about.eyebrow}</Eyebrow>
+                <h2 className="mt-4 font-display font-extrabold text-3xl sm:text-4xl lg:text-5xl leading-tight text-pty-charcoal dark:text-white">{C.about.title}</h2>
+                <p className="mt-5 text-pty-text dark:text-white/80 text-lg leading-relaxed">{C.about.body}</p>
+
+                <div className="mt-7 glass-light rounded-2xl p-5 shadow-sm">
+                  <p className="font-display font-bold text-pty-orange text-sm tracking-wide uppercase">{C.about.missionLabel}</p>
+                  <p className="mt-2 text-pty-text dark:text-white/85 leading-relaxed">{C.about.mission}</p>
+                </div>
+
+                {/* Stats */}
+                <dl className="mt-8 grid grid-cols-4 gap-3">
+                  {C.about.stats.map((s,i)=>(
+                    <div key={i} className="text-center">
+                      <dt className="font-display font-extrabold text-2xl sm:text-3xl text-pty-orange">{s.n}</dt>
+                      <dd className="mt-1 text-[11px] sm:text-xs text-pty-muted dark:text-white/60 leading-tight">{s.l}</dd>
+                    </div>
+                  ))}
+                </dl>
+              </div>
+
+              {/* Right: image + commitments */}
+              <div className="reveal">
+                <div className="relative rounded-3xl overflow-hidden shadow-2xl ring-1 ring-black/5">
+                  <img src="assets/img/IMG_7151.webp" alt="คลังสินค้าและศูนย์กระจายอะไหล่ของพัฒนายนตร์" className="w-full h-72 sm:h-96 object-cover" loading="lazy" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#262626]/70 to-transparent" />
+                  {/* 60yr badge */}
+                  <div className="absolute bottom-4 left-4 glass-dark rounded-2xl px-4 py-3 flex items-center gap-3">
+                    <img src="assets/img/60_logo.webp" alt="" aria-hidden="true" className="w-12 h-12 rounded-lg object-cover" />
+                    <div className="text-white">
+                      <p className="font-display font-extrabold text-xl leading-none">60+ <span className="text-pty-orange">ปี</span></p>
+                      <p className="text-[11px] text-white/70 mt-0.5">{C.about.visionLabel} · 2507</p>
+                    </div>
+                  </div>
+                  {/* ISO badge — Intertek ISO 9001 certificate */}
+                  <a href="assets/img/iso.png" target="_blank" rel="noopener noreferrer" title="ISO 9001 — Intertek certified" className="absolute bottom-4 right-4 glass-dark rounded-2xl px-3 py-2.5 flex items-center gap-2.5 cursor-pointer transition-colors hover:bg-white/[0.16]">
+                    <img src="assets/img/iso.webp" alt="ISO 9001 certificate by Intertek for Patanayont" className="w-9 h-12 object-cover rounded ring-1 ring-white/30" loading="lazy" />
+                    <div className="text-white leading-tight">
+                      <p className="font-display font-extrabold text-sm">ISO 9001</p>
+                      <p className="text-[10px] text-white/70">Intertek certified</p>
+                    </div>
+                  </a>
+                </div>
+
+                <div className="mt-5 space-y-3">
+                  <p className="font-display font-bold text-pty-charcoal dark:text-white text-sm tracking-wide uppercase">{C.about.commitmentsLabel}</p>
+                  {C.about.commitments.map((c,i)=>(
+                    <div key={i} className="glass-light rounded-xl p-4 flex gap-4 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md">
+                      <span className="shrink-0 inline-flex items-center justify-center w-11 h-11 rounded-xl bg-pty-orange/15 text-pty-orange ring-1 ring-pty-orange/30">
+                        <Icon name={icons[i]} className="w-6 h-6" />
+                      </span>
+                      <div>
+                        <h3 className="font-display font-bold text-pty-charcoal dark:text-white">{c.t}</h3>
+                        <p className="mt-0.5 text-sm text-pty-muted dark:text-white/70 leading-relaxed">{c.d}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* Vision quote band */}
+            <div className="reveal mt-14 lg:mt-20 relative rounded-3xl overflow-hidden pty-chrome shadow-xl">
+              <div className="relative px-6 py-10 sm:px-12 sm:py-14 text-center">
+                <Icon name="star" className="w-8 h-8 text-pty-orange mx-auto" />
+                <p className="mt-4 font-display font-semibold text-white text-xl sm:text-2xl lg:text-3xl leading-relaxed max-w-4xl mx-auto">
+                  “{C.about.vision}”
+                </p>
+                <p className="mt-5 text-pty-yellow font-display tracking-[0.2em] text-sm uppercase">{C.about.visionLabel} · AutoHaus by Patanayont</p>
+              </div>
+            </div>
+          </div>
+        </section>
+      );
+    }
+
+    /* ============================== Brands ============================== */
+    function Brands({ C }) {
+      return (
+        <section id="products" className="relative py-20 lg:py-28 bg-white/40 dark:bg-white/[0.02] scroll-mt-20">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div className="reveal text-center max-w-3xl mx-auto">
+              <div className="flex justify-center"><Eyebrow>{C.brands.eyebrow}</Eyebrow></div>
+              <h2 className="mt-4 font-display font-extrabold text-3xl sm:text-4xl lg:text-5xl leading-tight text-pty-charcoal dark:text-white">{C.brands.title}</h2>
+              <p className="mt-4 text-lg text-pty-text dark:text-white/75 leading-relaxed">{C.brands.sub}</p>
+            </div>
+
+            <div className="reveal mt-12 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-7 gap-4">
+              {BRANDS.map((b)=>(
+                <div key={b.name} className="group glass-light rounded-2xl p-4 flex flex-col items-center justify-center gap-3 aspect-[4/3] transition-all duration-200 hover:-translate-y-1 hover:shadow-lg hover:ring-1 hover:ring-pty-orange/40">
+                  <div className="flex-1 flex items-center justify-center w-full">
+                    <img src={b.img} alt={b.name+' genuine parts'} className="max-h-12 w-auto object-contain transition-transform duration-200 group-hover:scale-105" loading="lazy" />
+                  </div>
+                  <span className="font-display font-semibold text-xs text-pty-muted dark:text-white/60 tracking-wide">{b.name}</span>
+                </div>
+              ))}
+            </div>
+
+            <div className="reveal mt-8 flex items-center justify-center gap-2 text-pty-charcoal dark:text-white/80">
+              <Icon name="shield" className="w-5 h-5 text-pty-orange" />
+              <span className="font-display font-semibold text-sm tracking-wide">{C.brands.note}</span>
+            </div>
+          </div>
+        </section>
+      );
+    }
+
+    /* ============================== Segments (tabs) ============================== */
+    function Segments({ C }) {
+      const [tab, setTab] = useState(0);
+      const icons=['truck','wrench','shield'];
+      const t = C.segments.tabs[tab];
+      const go=(e,id)=>{ e.preventDefault(); document.getElementById(id)?.scrollIntoView({behavior:'smooth'}); };
+      return (
+        <section id="customers" className="relative py-20 lg:py-28 scroll-mt-20">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div className="reveal text-center max-w-3xl mx-auto">
+              <div className="flex justify-center"><Eyebrow>{C.segments.eyebrow}</Eyebrow></div>
+              <h2 className="mt-4 font-display font-extrabold text-3xl sm:text-4xl lg:text-5xl leading-tight text-pty-charcoal dark:text-white">{C.segments.title}</h2>
+              <p className="mt-4 text-lg text-pty-text dark:text-white/75">{C.segments.sub}</p>
+            </div>
+
+            {/* Tab bar */}
+            <div className="reveal mt-10 flex flex-wrap justify-center gap-2" role="tablist">
+              {C.segments.tabs.map((tb,i)=>(
+                <button key={tb.key} role="tab" aria-selected={tab===i} onClick={()=>setTab(i)}
+                  className={"inline-flex items-center gap-2 px-5 py-3 rounded-xl font-display font-semibold transition-all duration-200 cursor-pointer "
+                    +(tab===i ? "bg-pty-orange text-[#1a1a1a] shadow-lg shadow-pty-orange/25 ring-1 ring-pty-yellow/60"
+                              : "glass-light text-pty-charcoal dark:text-white hover:-translate-y-0.5")}>
+                  <Icon name={icons[i]} className="w-5 h-5" />{tb.label}
+                </button>
+              ))}
+            </div>
+
+            {/* Panel */}
+            <div className="reveal mt-8 grid lg:grid-cols-2 gap-8 items-stretch">
+              <div className="glass-light rounded-3xl p-7 sm:p-9 shadow-sm">
+                <span className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-pty-orange/15 text-pty-orange ring-1 ring-pty-orange/30">
+                  <Icon name={icons[tab]} className="w-7 h-7" />
+                </span>
+                <h3 className="mt-5 font-display font-extrabold text-2xl sm:text-3xl text-pty-charcoal dark:text-white">{t.head}</h3>
+                <p className="mt-3 text-pty-text dark:text-white/80 text-lg leading-relaxed">{t.lead}</p>
+                <ul className="mt-6 space-y-3">
+                  {t.points.map((pt,i)=>(
+                    <li key={i} className="flex gap-3 items-start">
+                      <span className="shrink-0 mt-0.5 inline-flex items-center justify-center w-6 h-6 rounded-full bg-pty-green/20 text-pty-green ring-1 ring-pty-green/40"><Icon name="check" className="w-4 h-4" /></span>
+                      <span className="text-pty-text dark:text-white/85 leading-relaxed">{pt}</span>
+                    </li>
+                  ))}
+                </ul>
+                <div className="mt-7"><PrimaryBtn href="#contact" onClick={(e)=>go(e,'contact')}>{t.cta}</PrimaryBtn></div>
+              </div>
+
+              <div className="relative rounded-3xl overflow-hidden shadow-2xl ring-1 ring-black/5 min-h-[320px]">
+                <img src={tab===0?'assets/img/partsoto.webp':tab===1?'assets/img/DSC_2037.webp':'assets/img/senierteam2.webp'} alt="" aria-hidden="true" className="absolute inset-0 w-full h-full object-cover" loading="lazy" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#262626]/80 via-[#262626]/30 to-transparent" />
+                <div className="absolute bottom-0 inset-x-0 p-6">
+                  <div className="glass-dark rounded-2xl px-5 py-4 inline-flex items-center gap-3">
+                    <Icon name="shield" className="w-7 h-7 text-pty-orange" />
+                    <span className="text-white font-display font-semibold">{C.brands.note}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      );
+    }
+
+    /* ============================== Offices ============================== */
+    function Offices({ C }) {
+      return (
+        <section id="locations" className="relative py-20 lg:py-28 bg-white/40 dark:bg-white/[0.02] scroll-mt-20">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div className="reveal text-center max-w-3xl mx-auto">
+              <div className="flex justify-center"><Eyebrow>{C.offices.eyebrow}</Eyebrow></div>
+              <h2 className="mt-4 font-display font-extrabold text-3xl sm:text-4xl lg:text-5xl leading-tight text-pty-charcoal dark:text-white">{C.offices.title}</h2>
+              <p className="mt-4 text-lg text-pty-text dark:text-white/75">{C.offices.sub}</p>
+            </div>
+
+            <div className="reveal mt-12 grid lg:grid-cols-3 gap-6">
+              {C.offices.items.map((o,i)=>{
+                const mapUrl = o.q ? 'https://maps.google.com/maps?q='+encodeURIComponent(o.q) : null;
+                return (
+                <div key={i} className="glass-light rounded-3xl overflow-hidden shadow-sm transition-all duration-200 hover:-translate-y-1 hover:shadow-xl flex flex-col">
+                  {o.map && mapUrl ? (
+                    <iframe title={o.name} src={mapUrl+'&z=15&output=embed'} className="w-full h-44 border-0" loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
+                  ) : (
+                    <div className="w-full h-44 pty-chrome flex items-center justify-center">
+                      <Icon name="pin" className="w-12 h-12 text-pty-orange/70" />
+                    </div>
+                  )}
+                  <div className="p-6 flex-1 flex flex-col">
+                    <div className="flex items-center gap-2">
+                      <h3 className="font-display font-bold text-lg text-pty-charcoal dark:text-white">{o.name}</h3>
+                      <span className={"text-[10px] font-bold px-2 py-0.5 rounded-md "+(i===0?"bg-pty-orange/20 text-pty-orange":"bg-pty-charcoal/10 dark:bg-white/10 text-pty-muted dark:text-white/60")}>{o.badge}</span>
+                    </div>
+                    <p className="mt-2 text-sm text-pty-muted dark:text-white/70 leading-relaxed flex-1">{o.addr}</p>
+                    {mapUrl && (
+                      <a href={mapUrl} target="_blank" rel="noopener noreferrer" className="mt-4 inline-flex items-center gap-1.5 text-pty-orange font-semibold text-sm hover:gap-2.5 transition-all cursor-pointer">
+                        <Icon name="pin" className="w-4 h-4" />{C.offices.viewMap}<Icon name="arrowRt" className="w-4 h-4" />
+                      </a>
+                    )}
+                  </div>
+                </div>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+      );
+    }
+
+    /* ============================== Contact ============================== */
+    function Contact({ C }) {
+      const [sent, setSent] = useState(false);
+      const directs = [
+        { icon:'phone', label:C.contact.phoneLabel, value:'02-2248827-30', href:'tel:022248827' },
+        { icon:'fax',   label:C.contact.faxLabel,   value:'0-2225-7691, 0-2225-7692', href:null },
+        { icon:'mail',  label:C.contact.emailLabel, value:'cs.k@patanayont.com', href:'mailto:cs.k@patanayont.com' },
+      ];
+      return (
+        <section id="contact" className="relative py-20 lg:py-28 scroll-mt-20">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div className="grid lg:grid-cols-2 gap-10 lg:gap-14 items-start">
+              {/* Left: info */}
+              <div className="reveal">
+                <Eyebrow>{C.contact.eyebrow}</Eyebrow>
+                <h2 className="mt-4 font-display font-extrabold text-3xl sm:text-4xl lg:text-5xl leading-tight text-pty-charcoal dark:text-white">{C.contact.title}</h2>
+                <p className="mt-4 text-lg text-pty-text dark:text-white/75 leading-relaxed">{C.contact.sub}</p>
+
+                <div className="mt-8 space-y-3">
+                  {directs.map((d,i)=>{
+                    const inner=(
+                      <div className="glass-light rounded-2xl p-4 flex items-center gap-4 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md">
+                        <span className="shrink-0 inline-flex items-center justify-center w-12 h-12 rounded-xl bg-pty-orange/15 text-pty-orange ring-1 ring-pty-orange/30"><Icon name={d.icon} className="w-6 h-6" /></span>
+                        <div>
+                          <p className="text-xs uppercase tracking-wide text-pty-muted dark:text-white/50 font-display font-bold">{d.label}</p>
+                          <p className="font-display font-semibold text-pty-charcoal dark:text-white">{d.value}</p>
+                        </div>
+                      </div>
+                    );
+                    return d.href ? <a key={i} href={d.href} className="block cursor-pointer">{inner}</a> : <div key={i}>{inner}</div>;
+                  })}
+                  <div className="glass-light rounded-2xl p-4 flex items-start gap-4">
+                    <span className="shrink-0 inline-flex items-center justify-center w-12 h-12 rounded-xl bg-pty-orange/15 text-pty-orange ring-1 ring-pty-orange/30"><Icon name="pin" className="w-6 h-6" /></span>
+                    <div>
+                      <p className="text-xs uppercase tracking-wide text-pty-muted dark:text-white/50 font-display font-bold">{C.contact.hqLabel}</p>
+                      <p className="text-sm text-pty-text dark:text-white/80 leading-relaxed mt-0.5">{C.offices.items[0].addr}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Right: form */}
+              <div className="reveal">
+                <form onSubmit={(e)=>{ e.preventDefault(); setSent(true); }} className="glass-light rounded-3xl p-7 sm:p-9 shadow-lg">
+                  {sent ? (
+                    <div className="text-center py-12">
+                      <span className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-pty-green/20 text-pty-green ring-1 ring-pty-green/40"><Icon name="check" className="w-9 h-9" /></span>
+                      <p className="mt-5 text-lg font-display font-semibold text-pty-charcoal dark:text-white leading-relaxed">{C.contact.f.sent}</p>
+                    </div>
+                  ) : (
+                    <div className="space-y-4">
+                      <Field label={C.contact.f.name} required><input type="text" required className="pty-input" /></Field>
+                      <div className="grid sm:grid-cols-2 gap-4">
+                        <Field label={C.contact.f.email} required><input type="email" required className="pty-input" /></Field>
+                        <Field label={C.contact.f.phone}><input type="tel" className="pty-input" /></Field>
+                      </div>
+                      <Field label={C.contact.f.branch}>
+                        <select className="pty-input cursor-pointer">
+                          {C.contact.branchOpts.map((o,i)=><option key={i}>{o}</option>)}
+                        </select>
+                      </Field>
+                      <Field label={C.contact.f.message}><textarea rows="4" className="pty-input resize-none"></textarea></Field>
+                      <button type="submit" className="w-full inline-flex items-center justify-center gap-2 rounded-xl bg-pty-orange px-6 py-4 font-display font-bold text-[#1a1a1a] shadow-lg shadow-pty-orange/25 ring-1 ring-pty-yellow/70 transition-all duration-200 hover:bg-pty-orange-light hover:-translate-y-0.5 cursor-pointer">
+                        {C.contact.f.submit}<Icon name="arrowRt" className="w-4 h-4" />
+                      </button>
+                    </div>
+                  )}
+                </form>
+              </div>
+            </div>
+          </div>
+        </section>
+      );
+    }
+
+    const Field = ({ label, required, children }) => (
+      <label className="block">
+        <span className="block mb-1.5 text-sm font-display font-semibold text-pty-charcoal dark:text-white/90">{label}{required && <span className="text-pty-orange"> *</span>}</span>
+        {children}
+      </label>
+    );
+
+    /* ============================== Footer ============================== */
+    function Footer({ C, lang, setLang }) {
+      const go=(e,id)=>{ e.preventDefault(); document.getElementById(id)?.scrollIntoView({behavior:'smooth'}); };
+      const links=[['about',C.nav.about],['products',C.nav.products],['customers',C.nav.customers],['locations',C.nav.locations],['contact',C.nav.contact]];
+      return (
+        <footer className="relative pty-chrome">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-14">
+            <div className="grid md:grid-cols-3 gap-10">
+              <div>
+                <img src="assets/logoPTY.svg" alt="AutoHaus by Patanayont" className="h-12 w-auto" />
+                <p className="mt-4 text-pty-yellow font-display tracking-[0.2em] text-xs uppercase">{C.footer.tagline}</p>
+                <p className="mt-3 text-white/70 text-sm leading-relaxed max-w-xs">{C.footer.badges}</p>
+              </div>
+
+              <div>
+                <p className="font-display font-bold text-white text-sm tracking-wide uppercase">{C.footer.quick}</p>
+                <ul className="mt-4 space-y-2">
+                  {links.map(([id,label])=>(
+                    <li key={id}><a href={"#"+id} onClick={(e)=>go(e,id)} className="text-white/70 hover:text-pty-orange transition-colors cursor-pointer text-sm">{label}</a></li>
+                  ))}
+                </ul>
+              </div>
+
+              <div>
+                <p className="font-display font-bold text-white text-sm tracking-wide uppercase">{C.contact.phoneLabel}</p>
+                <ul className="mt-4 space-y-3 text-sm">
+                  <li className="flex items-center gap-3 text-white/80"><Icon name="phone" className="w-5 h-5 text-pty-orange" /><a href="tel:022248827" className="hover:text-pty-orange cursor-pointer">02-2248827-30</a></li>
+                  <li className="flex items-center gap-3 text-white/80"><Icon name="fax" className="w-5 h-5 text-pty-orange" />0-2225-7691, 0-2225-7692</li>
+                  <li className="flex items-center gap-3 text-white/80"><Icon name="mail" className="w-5 h-5 text-pty-orange" /><a href="mailto:cs.k@patanayont.com" className="hover:text-pty-orange cursor-pointer">cs.k@patanayont.com</a></li>
+                </ul>
+                <div className="mt-5 inline-flex items-center rounded-lg ring-1 ring-white/25 overflow-hidden">
+                  <button onClick={()=>setLang('th')} className={"px-3 py-1.5 text-sm font-display font-bold cursor-pointer "+(lang==='th'?'bg-pty-orange text-[#1a1a1a]':'text-white/80 hover:bg-white/10')}>ไทย</button>
+                  <button onClick={()=>setLang('en')} className={"px-3 py-1.5 text-sm font-display font-bold cursor-pointer border-l border-white/20 "+(lang==='en'?'bg-pty-orange text-[#1a1a1a]':'text-white/80 hover:bg-white/10')}>EN</button>
+                </div>
+              </div>
+            </div>
+
+            <div className="mt-12 pt-6 border-t border-white/15 flex flex-col sm:flex-row items-center justify-between gap-3 text-white/60 text-xs">
+              <p>© {2024} {C.footer.legal} · {C.footer.rights}</p>
+              <p>{C.footer.made}</p>
+            </div>
+          </div>
+        </footer>
+      );
+    }
+
+    /* ============================== App ============================== */
+    const FONT_SCALES = [0.9, 1.0, 1.1, 1.2];
+
+    function App() {
+      const [lang, setLang]   = useState(()=> localStorage.getItem('pty-lang') || 'th');
+      const [theme, setTheme] = useState(()=> localStorage.getItem('pty-theme') || 'system');
+      const [fontIdx, setFontIdx] = useState(()=> { const v=parseInt(localStorage.getItem('pty-font')); return isNaN(v)?1:v; });
+      const [showTop, setShowTop] = useState(false);
+
+      const C = CONTENT[lang];
+      const ids = ['about','products','customers','locations','contact'];
+      const active = useScrollSpy(ids);
+      useReveal();
+
+      // lang persist + <html lang>
+      useEffect(()=>{ localStorage.setItem('pty-lang', lang); document.documentElement.lang = lang; }, [lang]);
+
+      // theme apply + persist
+      useEffect(()=>{
+        const mq = window.matchMedia('(prefers-color-scheme: dark)');
+        const apply = ()=>{
+          const dark = theme==='dark' || (theme==='system' && mq.matches);
+          document.documentElement.classList.toggle('dark', dark);
+        };
+        apply(); localStorage.setItem('pty-theme', theme);
+        if(theme==='system'){ mq.addEventListener('change', apply); return ()=>mq.removeEventListener('change', apply); }
+      }, [theme]);
+
+      // font scale
+      useEffect(()=>{ document.documentElement.style.fontSize = (FONT_SCALES[fontIdx]*100)+'%'; localStorage.setItem('pty-font', fontIdx); }, [fontIdx]);
+
+      // back-to-top visibility
+      useEffect(()=>{ const f=()=>setShowTop(window.scrollY>600); window.addEventListener('scroll',f,{passive:true}); return ()=>window.removeEventListener('scroll',f); },[]);
+
+      const cycleTheme = ()=> setTheme(t=> t==='dark' ? 'light' : 'dark');
+
+      return (
+        <React.Fragment>
+          <Navbar lang={lang} setLang={setLang} theme={theme} cycleTheme={cycleTheme} fontIdx={fontIdx} setFontIdx={setFontIdx} C={C} active={active} />
+          <main>
+            <Hero C={C} />
+            <About C={C} />
+            <Brands C={C} />
+            <Segments C={C} />
+            <Offices C={C} />
+            <Contact C={C} />
+          </main>
+          <Footer C={C} lang={lang} setLang={setLang} />
+
+          {/* Back to top */}
+          <button onClick={()=>window.scrollTo({top:0,behavior:'smooth'})} aria-label={C.a11y.top}
+            className={"fixed bottom-5 right-5 z-40 p-3 rounded-full bg-pty-orange text-[#1a1a1a] shadow-lg shadow-pty-orange/30 ring-1 ring-pty-yellow/70 transition-all duration-300 cursor-pointer hover:bg-pty-orange-light hover:-translate-y-1 "+(showTop?"opacity-100 translate-y-0":"opacity-0 translate-y-4 pointer-events-none")}>
+            <Icon name="arrowUp" className="w-5 h-5" />
+          </button>
+        </React.Fragment>
+      );
+    }
+
+    // input styling helper class via Tailwind @apply alternative: inject once
+    const style = document.createElement('style');
+    style.textContent = `
+      .pty-input{ width:100%; border-radius:0.75rem; border:1px solid rgba(0,0,0,0.12); background:rgba(255,255,255,0.7); padding:0.7rem 0.9rem; font-size:0.95rem; color:#333; transition:border-color .2s, box-shadow .2s; }
+      .dark .pty-input{ background:rgba(255,255,255,0.06); border-color:rgba(255,255,255,0.15); color:#f0f0f0; }
+      .pty-input:focus{ outline:none; border-color:#f39200; box-shadow:0 0 0 3px rgba(243,146,0,0.25); }
+      .pty-input::placeholder{ color:#9a9a9a; }
+    `;
+    document.head.appendChild(style);
+
+    const boot = document.getElementById('boot'); if(boot) boot.remove();
+    ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+  </script>
+</body>
+</html>
